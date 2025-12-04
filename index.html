@@ -141,6 +141,48 @@
       text-align: center;
     }
   }
+  /* Улучшенные отступы и визуальное выравнивание */
+  .section {
+    padding: 80px 20px;
+  }
+
+  #plans {
+    background:#0d0d0f;
+    padding:60px 20px;
+    border-radius:16px;
+  }
+
+  #plans .btn {
+    font-size:20px;
+    padding:14px 28px;
+  }
+
+  #plans p {
+    margin-top:15px !important;
+  }
+
+  footer.section {
+    margin-top:40px;
+  }
+
+  /* Mobile tuning */
+  @media (max-width:768px) {
+    #plans {
+      padding:40px 16px;
+    }
+
+    #plans .btn {
+      width:100%;
+    }
+
+    .card {
+      padding:16px;
+    }
+
+    footer.section {
+      padding:30px 10px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -178,9 +220,9 @@
 <section id="plans">
   <h2>ВЫБРАТЬ ПЛАН ТРЕНИРОВОК</h2>
 
-  <a class="btn" style="display:block; max-width:320px; margin:20px auto; text-align:center;" href="https://t.me/tsukan75" target="_blank">1 месяц — 5000 руб.</a>
+  <a class="btn" style="display:inline-block; margin:20px auto; text-align:center;" href="https://t.me/tsukan75" target="_blank">1 месяц — 5000 руб.</a>
 
-  <p style="font-size:16px; opacity:0.75; text-align:center; max-width:500px; margin:0 auto;">
+  <p style="font-size:16px; opacity:0.75; text-align:center; max-width:500px; margin:0 auto; margin-top:10px;">
     Сайт работает в тестовом режиме: электронные чеки временно не формируются. После оплаты, пожалуйста, напишите мне в Telegram для подтверждения.
   </p>
 </section>
@@ -190,3 +232,4 @@
 </footer>
 </body>
 </html>
+
