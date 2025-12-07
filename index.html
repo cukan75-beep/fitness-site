@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <!-- Адаптация под мобильные устройства -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Виртуальный Фитнес‑Тренер</title>
 
@@ -99,16 +98,9 @@
       font-size: 20px;
     }
 
-    /* БАЗОВАЯ АДАПТАЦИЯ */
-    html, body {
-      max-width: 100%;
-      overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
+    /* Общие адаптивные вещи */
+    html, body {max-width:100%; overflow-x:hidden;}
+    img {max-width:100%; height:auto;}
 
     .hero-title,
     .hero-sub {
@@ -120,30 +112,18 @@
       header {
         height: auto;
         min-height: 100vh;
-        align-items: flex-start;
-        padding-bottom: 30px;
+        display: block;
+        padding: 24px 16px 32px 16px;
+        background-position: center top;
       }
 
-      .overlay {
-        margin: 90px 16px 0 16px;
-        max-width: 100%;
-        padding: 20px;
-      }
-
-      h1 {
-        font-size: 24px;
-      }
-
-      p {
-        font-size: 16px;
-      }
-
-      /* убираем абсолют и уменьшаем шрифт */
+      /* Заголовок и подзаголовок перестают быть абсолютными
+         и идут обычным вертикальным потоком */
       .hero-title {
         position: static !important;
         font-size: 26px !important;
-        text-align: center;
-        margin: 16px 12px 0 12px;
+        text-align: left;
+        margin: 0 0 12px 0;
       }
 
       .hero-sub {
@@ -151,7 +131,21 @@
         max-width: 100% !important;
         text-align: left !important;
         font-size: 16px !important;
-        margin: 16px 16px 0 16px;
+        margin: 0 0 20px 0;
+      }
+
+      .overlay {
+        margin: 0;
+        max-width: 100%;
+        padding: 18px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 16px;
       }
 
       .card {
@@ -197,59 +191,32 @@
 
     /* МАЛЕНЬКИЕ ТЕЛЕФОНЫ */
     @media (max-width: 480px) {
-      .overlay {
-        margin: 70px 12px 0 12px;
-        padding: 18px;
+      header {
+        padding: 20px 12px 28px 12px;
       }
 
-      h1 {
-        font-size: 22px;
+      .overlay {
+        padding: 16px;
       }
 
       .hero-title {
         font-size: 22px !important;
+      }
+
+      h1 {
+        font-size: 20px;
       }
     }
   </style>
 </head>
 <body>
 
-<style>
-  .hook {
-    position: absolute;
-    top: 60px;
-    right: 60px;
-    max-width: 300px;
-    text-align: right;
-    font-size: 26px;
-    line-height: 1.4;
-    font-weight: bold;
-  }
-  .sub {
-    display: block;
-    font-size: 16px;
-    opacity: 0.8;
-    margin-top: 6px;
-  }
-  .highlight-goal {
-    color: #32E2C6;
-    font-weight: bold;
-  }
-  .plan-btn {
-    display: block;
-    margin: 20px 0;
-    text-align: left;
-    font-size: 20px;
-  }
-</style>
-
 <header>
-
-  <div class="hero-title" style="position:absolute; top:30px; right:40px; font-size:42px; font-weight:bold; color:white; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); z-index:10;">
+  <div class="hero-title" style="position:absolute; top:30px; left:20px; font-size:42px; font-weight:bold; color:white; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); z-index:10;">
     ТВОЙ АИ-ФИТНЕС-ТРЕНЕР
   </div>
 
-  <div class="hero-sub" style="position:absolute; bottom:30px; right:40px; max-width:300px; text-align:right; font-size:20px; line-height:1.5; font-weight:bold; color:white; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
+  <div class="hero-sub" style="position:absolute; top:30px; right:20px; max-width:320px; text-align:right; font-size:20px; line-height:1.5; font-weight:bold; color:white; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
     — Стань сильнее по‑своему.<br>
     — Твое тело — твои правила тренировки.<br>
     — Форма, которая подчиняется только тебе.
