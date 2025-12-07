@@ -16,24 +16,136 @@ p {font-size:18px; opacity:0.9;}
 h2 {font-size:32px; margin-bottom:20px;}
 .card {background:#111; padding:20px; border-radius:12px; margin-bottom:20px; display:flex; gap:20px; align-items:center;}
 .card img {width:160px; border-radius:12px;}
-.sub{display:block; font-size:16px; opacity:0.8; margin-top:6px;} .highlight-goal{color:#32E2C6; font-weight:bold;} 
+.sub{display:block; font-size:16px; opacity:0.8; margin-top:6px;}
+.highlight-goal{color:#32E2C6; font-weight:bold;} 
 .plan-btn{display:block;margin:20px 0;text-align:left;font-size:20px;}
 
+/* === БАЗОВАЯ МОБИЛЬНАЯ АДАПТАЦИЯ === */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Картинки не вылезают за экран */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+  header {
+    height: auto;
+    min-height: 100vh;
+    align-items: flex-start;
+  }
+
+  .overlay {
+    margin: 80px 16px 40px 16px;
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  /* Верхний и нижний тексты в шапке — не в абсолюте, а адаптивно */
+  .hero-title {
+    position: static;
+    font-size: 28px;
+    text-align: center;
+    margin: 20px 16px 0;
+  }
+
+  .hero-sub {
+    position: static;
+    max-width: 100%;
+    text-align: left;
+    font-size: 16px;
+    margin: 20px 16px 0;
+  }
+
+  /* Карточки "Кому подходит" и "Как работает" в колонку */
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card img {
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .section {
+    padding: 40px 16px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  /* Отзывы — одна колонка */
+  .reviews-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .column {
+    width: 100%;
+  }
+
+  /* Кнопки и текст */
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .plan-btn {
+    text-align: center;
+  }
+
+  .toggle-btn {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    margin: 70px 12px 30px 12px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .hero-title {
+    font-size: 24px;
+  }
+}
 </style>
 </head>
 <body>
 
-<style>.hook{position:absolute; top:60px; right:60px; max-width:300px; text-align:right; font-size:26px; line-height:1.4; font-weight:bold;}.sub{display:block; font-size:16px; opacity:0.8; margin-top:6px;} .highlight-goal{color:#32E2C6; font-weight:bold;} 
+<style>
+.hook{position:absolute; top:60px; right:60px; max-width:300px; text-align:right; font-size:26px; line-height:1.4; font-weight:bold;}
+.sub{display:block; font-size:16px; opacity:0.8; margin-top:6px;}
+.highlight-goal{color:#32E2C6; font-weight:bold;} 
 .plan-btn{display:block;margin:20px 0;text-align:left;font-size:20px;}
+</style>
 
-</style><header>
+<header>
 
-<div style="position:absolute; top:30px; right:40px; font-size:42px; font-weight:bold; color:white; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); z-index:10;">
+<div class="hero-title" style="position:absolute; top:30px; right:40px; font-size:42px; font-weight:bold; color:white; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); z-index:10;">
   ТВОЙ АИ-ФИТНЕС-ТРЕНЕР
 </div>
 
-
-<div style="position:absolute; bottom:30px; right:40px; max-width:300px; text-align:right; font-size:20px; line-height:1.5; font-weight:bold; color:white; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
+<div class="hero-sub" style="position:absolute; bottom:30px; right:40px; max-width:300px; text-align:right; font-size:20px; line-height:1.5; font-weight:bold; color:white; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
   — Стань сильнее по‑своему.<br>
   — Твое тело — твои правила тренировки.<br>
   — Форма, которая подчиняется только тебе.
@@ -45,6 +157,7 @@ h2 {font-size:32px; margin-bottom:20px;}
 <a class="btn" href="#plans">Получить персональную программу</a>
 </div>
 </header>
+
 <section style="padding:80px 20px; background:#0D0D0F; color:white; font-family:Arial, sans-serif;">
 <h2 style="font-size:34px; margin-bottom:25px; color:#32E2C6; text-align:center;">Почему АИ-тренер сильнее обычного</h2>
 <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; max-width:1100px; margin:auto;">
@@ -75,7 +188,6 @@ h2 {font-size:32px; margin-bottom:20px;}
 <a href="https://t.me/Tsukan75" style="background:#32E2C6; padding:14px 32px; color:#000; font-weight:bold; text-decoration:none; border-radius:10px;">Преобрести персонального АИ фитнес‑тренера</a>
 </div>
 </section>
-
 
 <div class="section">
 <h2>Кому подходит</h2>
@@ -126,8 +238,8 @@ h2 {font-size:32px; margin-bottom:20px;}
 .text{opacity:0.9;line-height:1.4;}
 
 .plan-btn{display:block;margin:20px 0;text-align:left;font-size:20px;}
-
 </style>
+
 <h2 id="plans">ВЫБРАТЬ ПЛАН ТРЕНЕРОВОК</h2>
 <a class="btn plan-btn" href="https://t.me/Tsukan75">1 месяц — 5000 руб.</a>
 <p style="margin-top:10px;font-size:14px;opacity:0.8;">Сайт работает в тестовом режиме, чеки об оплате временно не выдаются.</p>
@@ -150,6 +262,7 @@ h2 {font-size:32px; margin-bottom:20px;}
 
 </div>
 </div>
+
 <div class="info-section">
 <button class="toggle-btn">Пользовательское соглашение</button>
 <div class="content hidden">
@@ -166,6 +279,7 @@ h2 {font-size:32px; margin-bottom:20px;}
 
 </div>
 </div>
+
 <footer class="section"><p>Контакты: cukanchik@rambler.ru | Telegram: @Tsukan75 | Тел: +7 929 755-13-95</p></footer>
 
 <style>
@@ -175,6 +289,7 @@ h2 {font-size:32px; margin-bottom:20px;}
 .content {background:#111;padding:15px;margin-top:10px;border-radius:6px;line-height:1.6;}
 .hidden {display:none;}
 </style>
+
 <script>
 document.querySelectorAll(".toggle-btn").forEach(btn=>{
  btn.addEventListener("click",()=>{
