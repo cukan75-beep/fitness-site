@@ -1,136 +1,319 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Виртуальный Фитнес-Тренер</title>
-<style>
-body {margin:0; font-family: Arial, sans-serif; background:#0D0D0F; color:white;}
-header {position:relative; height:100vh; background-size:cover; background-position:center;
-background-image:url('kettlebell.webp'); display:flex; align-items:center;}
-.overlay {background:rgba(0,0,0,0.55); padding:40px; max-width:480px; margin-left:5vw; border-radius:12px;}
-h1 {font-size:36px; line-height:1.3; margin-bottom:20px;}
-p {font-size:18px; opacity:0.9;}
-.btn {display:inline-block; background:#32E2C6; color:#000; padding:14px 22px; margin-top:20px; border-radius:10px; font-weight:bold; text-decoration:none;}
-.section {padding:60px 20px; max-width:1100px; margin:auto;}
-h2 {font-size:32px; margin-bottom:20px;}
-.card {background:#111; padding:20px; border-radius:12px; margin-bottom:20px; display:flex; gap:20px; align-items:center;}
-.card img {width:160px; border-radius:12px;}
-.sub{display:block; font-size:16px; opacity:0.8; margin-top:6px;} .highlight-goal{color:#32E2C6; font-weight:bold;} 
-.plan-btn{display:block;margin:20px 0;text-align:left;font-size:20px;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Виртуальный Фитнес‑Тренер</title>
 
-</style>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0D0D0F;
+      color: white;
+    }
+
+    header {
+      position: relative;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-image: url('kettlebell.webp');
+      display: flex;
+      align-items: center;
+    }
+
+    .overlay {
+      background: rgba(0,0,0,0.55);
+      padding: 40px;
+      max-width: 480px;
+      margin-left: 5vw;
+      border-radius: 12px;
+    }
+
+    h1 {
+      font-size: 36px;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #32E2C6;
+      color: #000;
+      padding: 14px 22px;
+      margin-top: 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .card img {
+      width: 160px;
+      border-radius: 12px;
+    }
+
+    .sub {
+      display: block;
+      font-size: 16px;
+      opacity: 0.8;
+      margin-top: 6px;
+    }
+
+    .highlight-goal {
+      color: #32E2C6;
+      font-weight: bold;
+    }
+
+    .plan-btn {
+      display: block;
+      margin: 20px 0;
+      text-align: left;
+      font-size: 20px;
+    }
+
+    /* Общие адаптивные вещи */
+    html, body {max-width:100%; overflow-x:hidden;}
+    img {max-width:100%; height:auto;}
+
+    .hero-title,
+    .hero-sub {
+      transition: all .2s ease;
+    }
+
+    /* ПЛАНШЕТ/ТЕЛЕФОН */
+    @media (max-width: 768px) {
+      header {
+        height: auto;
+        min-height: 100vh;
+        display: block;
+        padding: 24px 16px 32px 16px;
+        background-position: center top;
+      }
+
+      .hero-title {
+        position: static !important;
+        font-size: 26px !important;
+        text-align: left;
+        margin: 0 0 12px 0;
+      }
+
+      .hero-sub {
+        position: static !important;
+        max-width: 100% !important;
+        text-align: left !important;
+        font-size: 16px !important;
+        margin: 0 0 20px 0;
+      }
+
+      .overlay {
+        margin: 0;
+        max-width: 100%;
+        padding: 18px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .card img {
+        width: 100%;
+        max-width: 260px;
+      }
+
+      .section {
+        padding: 40px 16px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      .reviews-grid {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .column {
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .plan-btn {
+        text-align: center;
+      }
+
+      .toggle-btn {
+        font-size: 16px;
+      }
+    }
+
+    /* МАЛЕНЬКИЕ ТЕЛЕФОНЫ */
+    @media (max-width: 480px) {
+      header {
+        padding: 20px 12px 28px 12px;
+      }
+
+      .overlay {
+        padding: 16px;
+      }
+
+      .hero-title {
+        font-size: 22px !important;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<style>.hook{position:absolute; top:60px; right:60px; max-width:300px; text-align:right; font-size:26px; line-height:1.4; font-weight:bold;}.sub{display:block; font-size:16px; opacity:0.8; margin-top:6px;} .highlight-goal{color:#32E2C6; font-weight:bold;} 
-.plan-btn{display:block;margin:20px 0;text-align:left;font-size:20px;}
+<header>
+  <div class="hero-title" style="position:absolute; top:30px; left:20px; font-size:42px; font-weight:bold; color:white; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); z-index:10;">
+    ТВОЙ АИ-ФИТНЕС-ТРЕНЕР
+  </div>
 
-</style><header>
+  <div class="hero-sub" style="position:absolute; top:30px; right:20px; max-width:320px; text-align:right; font-size:20px; line-height:1.5; font-weight:bold; color:white; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
+    — Стань сильнее по‑своему.<br>
+    — Твое тело — твои правила тренировки.<br>
+    — Форма, которая подчиняется только тебе.
+  </div>
 
-<div style="position:absolute; top:30px; right:40px; font-size:42px; font-weight:bold; color:white; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); z-index:10;">
-  ТВОЙ АИ-ФИТНЕС-ТРЕНЕР
-</div>
-
-
-<div style="position:absolute; bottom:30px; right:40px; max-width:300px; text-align:right; font-size:20px; line-height:1.5; font-weight:bold; color:white; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
-  — Стань сильнее по-своему.<br>
-  — Твое тело — твои правила тренировки.<br>
-  — Форма, которая подчиняется только тебе.
-</div>
-
-<div class="overlay">
-<h1>Персональные тренировки и питание — под твой организм, цели и здоровье</h1>
-<p>Тренируйся дома, в зале или на улице. Программа создаётся индивидуально — без универсальных схем.</p>
-<a class="btn" href="#plans">Получить персональную программу</a>
-</div>
+  <div class="overlay">
+    <h1>Персональные тренировки и питание — под твой организм, цели и здоровье</h1>
+    <p>Тренируйся дома, в зале или на улице. Программа создаётся индивидуально — без универсальных схем.</p>
+    <a class="btn" href="#plans">Получить персональную программу</a>
+  </div>
 </header>
+
 <section style="padding:80px 20px; background:#0D0D0F; color:white; font-family:Arial, sans-serif;">
-<h2 style="font-size:34px; margin-bottom:25px; color:#32E2C6; text-align:center;">Почему АИ-тренер сильнее обычного</h2>
-<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; max-width:1100px; margin:auto;">
+  <h2 style="font-size:34px; margin-bottom:25px; color:#32E2C6; text-align:center;">Почему АИ-тренер сильнее обычного</h2>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; max-width:1100px; margin:auto;">
 
-<div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
-<h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Работает 24/7</h3>
-<p style="opacity:0.85;">Всегда на связи, без перерывов и усталости. Поддержка и корректировка программы в любое время.</p>
-</div>
+    <div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
+      <h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Работает 24/7</h3>
+      <p style="opacity:0.85;">Всегда на связи, без перерывов и усталости. Поддержка и корректировка программы в любое время.</p>
+    </div>
 
-<div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
-<h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Точнее и внимательнее тренера</h3>
-<p style="opacity:0.85;">Анализирует технику, прогресс и ошибки с точностью технологий — без человеческого фактора.</p>
-</div>
+    <div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
+      <h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Точнее и внимательнее тренера</h3>
+      <p style="opacity:0.85;">Анализирует технику, прогресс и ошибки с точностью технологий — без человеческого фактора.</p>
+    </div>
 
-<div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
-<h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Личная адаптация</h3>
-<p style="opacity:0.85;">Программы подстраиваются под сон, уровень стресса, шаги, нагрузку и здоровье каждый день.</p>
-</div>
+    <div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
+      <h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Личная адаптация</h3>
+      <p style="opacity:0.85;">Программы подстраиваются под сон, уровень стресса, шаги, нагрузку и здоровье каждый день.</p>
+    </div>
 
-<div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
-<h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Выгоднее в 10 раз</h3>
-<p style="opacity:0.85;">Полный функционал персонального тренера по цене чашки кофе в неделю.</p>
-</div>
+    <div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
+      <h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Выгоднее в 10 раз</h3>
+      <p style="opacity:0.85;">Полный функционал персонального тренера по цене чашки кофе в неделю.</p>
+    </div>
 
-</div>
+  </div>
 
-<div style="text-align:center; margin-top:35px;">
-<a href="https://t.me/Tsukan75" style="background:#32E2C6; padding:14px 32px; color:#000; font-weight:bold; text-decoration:none; border-radius:10px;">Преобрести персонального АИ фитнес-тренера</a>
-</div>
+  <div style="text-align:center; margin-top:35px;">
+    <a class="btn" href="https://t.me/Tsukan75">Приобрести персонального АИ фитнес‑тренера</a>
+  </div>
 </section>
 
-
 <div class="section">
-<h2>Кому подходит</h2>
-<div class="card"><img src="waistline.webp"><div><span class='highlight-goal'>Хочу похудеть без стресса и срывов</span><br>— Составлю план питания и тренировок, который подойдёт твоему образу жизни и не перегрузит нервную систему.<br>— Научишься худеть без жёстких ограничений, эмоциональных качелей и вечного желания сорваться.<br>— Будем снижать вес постепенно и комфортно: нормализуем питание, сон, ритм дня и нагрузку.</div></div>
-<div class="card"><img src="dumbbell.webp"><div><span class='highlight-goal'>Хочу набрать мышечную массу</span><br>— Получишь программу с акцентом на силу, правильную технику и прогрессию, чтобы расти стабильно и без травм.<br>— Подберу питание и режим восстановления под твой метаболизм, чтобы набор массы был «чистым».<br>— Научишься тренироваться осознанно: от контроля техники до правильного распределения объёма нагрузки.</div></div>
-<div class="card"><img src="home_workout.webp"><div><span class='highlight-goal'>Хочу тренироваться дома</span><br>— Составлю эффективные тренировки без инвентаря, которые легко вписать в твой график.<br>— Ты сможешь держать форму, улучшать гибкость, силу и выносливость, не выходя из дома.<br>— Индивидуальная программа под твоё пространство, уровень подготовки и цели.</div></div>
-</div>
-
-<div class="section">
-<h2>Как работает</h2>
-<div class="card"><img src="questionnaire.webp"><div><span class='highlight-goal'>1. Заполняете мини-анкету</span><br><span class='sub'>Чтобы я понял твой опыт, цели и ограничения — и собрал программу без ошибок.</span></div></div>
-<div class="card"><img src="analysis.webp"><div><span class='highlight-goal'>2. Анализ данных и подбор нагрузки</span><br><span class='sub'>Подбираю нагрузку так, чтобы прогресс шёл без перегруза и стресса.</span></div></div>
-<div class="card"><img src="program.webp"><div><span class='highlight-goal'>3. Получаете персональный план</span><br><span class='sub'>Структурированная программа с рекомендациями на каждый день.</span></div></div>
+  <h2>Кому подходит</h2>
+  <div class="card"><img src="waistline.webp"><div><span class='highlight-goal'>Хочу похудеть без стресса и срывов</span><br>— Составлю план питания и тренировок, который подойдёт твоему образу жизни и не перегрузит нервную систему.<br>— Научишься худеть без жёстких ограничений, эмоциональных качелей и вечного желания сорваться.<br>— Будем снижать вес постепенно и комфортно: нормализуем питание, сон, ритм дня и нагрузку.</div></div>
+  <div class="card"><img src="dumbbell.webp"><div><span class='highlight-goal'>Хочу набрать мышечную массу</span><br>— Получишь программу с акцентом на силу, правильную технику и прогрессию, чтобы расти стабильно и без травм.<br>— Подберу питание и режим восстановления под твой метаболизм, чтобы набор массы был «чистым».<br>— Научишься тренироваться осознанно: от контроля техники до правильного распределения объёма нагрузки.</div></div>
+  <div class="card"><img src="home_workout.webp"><div><span class='highlight-goal'>Хочу тренироваться дома</span><br>— Составлю эффективные тренировки без инвентаря, которые легко вписать в твой график.<br>— Ты сможешь держать форму, улучшать гибкость, силу и выносливость, не выходя из дома.<br>— Индивидуальная программа под твоё пространство, уровень подготовки и цели.</div></div>
 </div>
 
 <div class="section">
-
-<div class="section" id="reviews">
-<h2>Отзывы наших клиентов</h2>
-
-<div class="reviews-grid">
-
-<div class="column">
-<div class="review"><img src="review1.png"><p class="name">Алина</p><p class="text">Занимаюсь на улице по вашему плану — минимум инвентаря, максимум пользы. Прогресс чувствую каждую неделю!</p></div>
-
-<div class="review"><img src="review2.png"><p class="name">Кристина</p><p class="text">В зале тренировки стали структурированными: техника, прогрессия — всё понятно и безопасно. Уже вижу результат!</p></div>
-
-<div class="review"><img src="review3.png"><p class="name">Мария</p><p class="text">Тренируюсь дома, и программа идеально вписалась в мой график. Стало проще держать форму и не перегружаться.</p></div>
+  <h2>Как работает</h2>
+  <div class="card"><img src="questionnaire.webp"><div><span class='highlight-goal'>1. Заполняете мини-анкету</span><br><span class='sub'>Чтобы я понял твой опыт, цели и ограничения — и собрал программу без ошибок.</span></div></div>
+  <div class="card"><img src="analysis.webp"><div><span class='highlight-goal'>2. Анализ данных и подбор нагрузки</span><br><span class='sub'>Подбираю нагрузку так, чтобы прогресс шёл без перегруза и стресса.</span></div></div>
+  <div class="card"><img src="program.webp"><div><span class='highlight-goal'>3. Получаете персональный план</span><br><span class='sub'>Структурированная программа с рекомендациями на каждый день.</span></div></div>
 </div>
 
-<div class="column">
-<div class="review"><img src="review4.png"><p class="name">Денис</p><p class="text">Уличный спорткомплекс + ваш план = мощная связка. Выносливость выросла, техника стала чище.</p></div>
+<div class="section">
 
-<div class="review"><img src="review5.png"><p class="name">Александр</p><p class="text">В зале наконец-то пошёл «чистый» набор массы. Очень нравится продуманная прогрессия нагрузки.</p></div>
+  <div class="section" id="reviews">
+    <h2>Отзывы наших клиентов</h2>
 
-<div class="review"><img src="review6.png"><p class="name">Никита</p><p class="text">Занимаюсь дома — упражнения подобраны идеально под пространство. Результат на уровне тренажёрки.</p></div>
-</div>
+    <div class="reviews-grid">
 
-</div>
-</div>
+      <div class="column">
+        <div class="review"><img src="review1.png"><p class="name">Алина</p><p class="text">Занимаюсь на улице по вашему плану — минимум инвентаря, максимум пользы. Прогресс чувствую каждую неделю!</p></div>
 
-<style>
-.reviews-grid{display:flex;gap:40px;margin-top:20px;}
-.column{flex:1;display:flex;flex-direction:column;gap:20px;}
-.review{background:#111;padding:15px;border-radius:12px;}
-.review img{width:100%;border-radius:10px;margin-bottom:8px;}
-.name{font-weight:bold;color:#32E2C6;margin-bottom:4px;}
-.text{opacity:0.9;line-height:1.4;}
+        <div class="review"><img src="review2.png"><p class="name">Кристина</p><p class="text">В зале тренировки стали структурированными: техника, прогрессия — всё понятно и безопасно. Уже вижу результат!</p></div>
 
-.plan-btn{display:block;margin:20px 0;text-align:left;font-size:20px;}
+        <div class="review"><img src="review3.png"><p class="name">Мария</p><p class="text">Тренируюсь дома, и программа идеально вписалась в мой график. Стало проще держать форму и не перегружаться.</p></div>
+      </div>
 
-</style>
-<h2 id="plans">ЗАБРАТЬ ПЛАН ТРЕНИРОВОК</h2>
-<a class="btn plan-btn" href="https://t.me/Tsukan75">Связь со мной.</a>
-<p style="margin-top:10px;font-size:14px;opacity:0.8;"></p>
+      <div class="column">
+        <div class="review"><img src="review4.png"><p class="name">Денис</p><p class="text">Уличный спорткомплекс + ваш план = мощная связка. Выносливость выросла, техника стала чище.</p></div>
+
+        <div class="review"><img src="review5.png"><p class="name">Александр</p><p class="text">В зале наконец-то пошёл «чистый» набор массы. Очень нравится продуманная прогрессия нагрузки.</p></div>
+
+        <div class="review"><img src="review6.png"><p class="name">Никита</p><p class="text">Занимаюсь дома — упражнения подобраны идеально под пространство. Результат на уровне тренажёрки.</p></div>
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+    .reviews-grid{display:flex;gap:40px;margin-top:20px;}
+    .column{flex:1;display:flex;flex-direction:column;gap:20px;}
+    .review{background:#111;padding:15px;border-radius:12px;}
+    .review img{width:100%;border-radius:10px;margin-bottom:8px;}
+    .name{font-weight:bold;color:#32E2C6;margin-bottom:4px;}
+    .text{opacity:0.9;line-height:1.4;}
+
+    .plan-btn{display:block;margin:20px 0;text-align:left;font-size:20px;}
+  </style>
+
+  <h2 id="plans">ЗАБРАТЬ ПЛАН ТРЕНИРОВОК</h2>
+  <a class="btn plan-btn" href="https://t.me/Tsukan75">Связь со мной.</a>
+  <p style="margin-top:10px;font-size:14px;opacity:0.8;"></p>
 </div>
 
 <!-- Форма Tally: Челлендж Fit за 30 дней с ИИ -->
@@ -149,54 +332,58 @@ h2 {font-size:32px; margin-bottom:20px;}
   </div>
 </div>
 <div class="info-section">
-<button class="toggle-btn">Политика конфиденциальности</button>
-<div class="content hidden">
+  <button class="toggle-btn">Политика конфиденциальности</button>
+  <div class="content hidden">
 
-<h2>Политика конфиденциальности</h2>
-<p>Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных, предоставляемых пользователями сайта «Виртуальный Фитнес-Тренер».</p>
-<ul>
-<li>Оператор: ИП с ОГРНИП 305025834000022, ИНН 025802324932, Email: cukanchik@rambler.ru, Тел.: +7 929 755-13-95.</li>
-<li>Собираемые данные: имя, email, телефон, цели тренировок и питания.</li>
-<li>Цели обработки: предоставление консультаций, индивидуальных программ, связь с пользователями.</li>
-<li>Хранение данных: в течение 3 лет с момента последнего взаимодействия.</li>
-<li>Передача третьим лицам: не осуществляется, за исключением случаев, предусмотренных законодательством РФ.</li>
-</ul>
-<p>Пользователь, отправляя данные через формы сайта, подтверждает согласие с данной политикой.</p>
+    <h2>Политика конфиденциальности</h2>
+    <p>Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных, предоставляемых пользователями сайта «Виртуальный Фитнес‑Тренер».</p>
+    <ul>
+      <li>Оператор: ИП с ОГРНИП 305025834000022, ИНН 025802324932, Email: cukanchik@rambler.ru, Тел.: +7 929 755-13-95.</li>
+      <li>Собираемые данные: имя, email, телефон, цели тренировок и питания.</li>
+      <li>Цели обработки: предоставление консультаций, индивидуальных программ, связь с пользователями.</li>
+      <li>Хранение данных: в течение 3 лет с момента последнего взаимодействия.</li>
+      <li>Передача третьим лицам: не осуществляется, за исключением случаев, предусмотренных законодательством РФ.</li>
+    </ul>
+    <p>Пользователь, отправляя данные через формы сайта, подтверждает согласие с данной политикой.</p>
 
+  </div>
 </div>
-</div>
+
 <div class="info-section">
-<button class="toggle-btn">Пользовательское соглашение</button>
-<div class="content hidden">
+  <button class="toggle-btn">Пользовательское соглашение</button>
+  <div class="content hidden">
 
-<h2>Пользовательское соглашение</h2>
-<p>Используя сайт «Виртуальный Фитнес-Тренер», вы соглашаетесь с условиями настоящего соглашения:</p>
-<ul>
-<li>Услуги предоставляются ИП ОГРНИП 305025834000022, ИНН 025802324932.</li>
-<li>Информация носит рекомендательный характер и не заменяет медицинскую консультацию.</li>
-<li>Ответственность за следование программам несет пользователь.</li>
-<li>Запрещено копирование и распространение материалов сайта без разрешения.</li>
-<li>Оператор вправе изменять условия в любое время без предварительного уведомления.</li>
-</ul>
+    <h2>Пользовательское соглашение</h2>
+    <p>Используя сайт «Виртуальный Фитнес‑Тренер», вы соглашаетесь с условиями настоящего соглашения:</p>
+    <ul>
+      <li>Услуги предоставляются ИП ОГРНИП 305025834000022, ИНН 025802324932.</li>
+      <li>Информация носит рекомендательный характер и не заменяет медицинскую консультацию.</li>
+      <li>Ответственность за следование программам несет пользователь.</li>
+      <li>Запрещено копирование и распространение материалов сайта без разрешения.</li>
+      <li>Оператор вправе изменять условия в любое время без предварительного уведомления.</li>
+    </ul>
 
+  </div>
 </div>
-</div>
+
 <footer class="section"><p>Контакты: cukanchik@rambler.ru | Telegram: @Tsukan75 | Тел: +7 929 755-13-95</p></footer>
 
 <style>
-.info-section { margin:20px 0;}
-.toggle-btn {width:100%;padding:15px;font-size:18px;background:#222;color:#fff;border:none;cursor:pointer;text-align:left;border-radius:6px;transition:background .2s;}
-.toggle-btn:hover {background:#333;}
-.content {background:#111;padding:15px;margin-top:10px;border-radius:6px;line-height:1.6;}
-.hidden {display:none;}
+  .info-section { margin:20px 0;}
+  .toggle-btn {width:100%;padding:15px;font-size:18px;background:#222;color:#fff;border:none;cursor:pointer;text-align:left;border-radius:6px;transition:background .2s;}
+  .toggle-btn:hover {background:#333;}
+  .content {background:#111;padding:15px;margin-top:10px;border-radius:6px;line-height:1.6;}
+  .hidden {display:none;}
 </style>
+
 <script>
-document.querySelectorAll(".toggle-btn").forEach(btn=>{
- btn.addEventListener("click",()=>{
-  const c=btn.nextElementSibling;
-  c.classList.toggle("hidden");
- });
-});
+  document.querySelectorAll(".toggle-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const c=btn.nextElementSibling;
+      c.classList.toggle("hidden");
+    });
+  });
 </script>
+
 </body>
 </html>
