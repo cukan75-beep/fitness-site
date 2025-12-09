@@ -1,39 +1,237 @@
-<!-- ДОБАВЛЕННЫЙ БЛОК: Fit за 30 дней с ИИ -->
-<div class="section" id="challenge-fit-ai" style="background:#111; color:white; padding:60px 20px;">
-  <h2 style="text-align:center; font-size:34px; color:#32E2C6; margin-bottom:20px;">Челлендж: Fit за 30 дней с ИИ</h2>
-  <p style="max-width:800px; margin:0 auto 30px auto; text-align:center; font-size:18px; opacity:0.9;">
-    Прими вызов — получи бесплатную персональную программу от ИИ, тренируйся 30 дней и делись результатами. 
-    Лучшие участники получат продвинутые планы, консультации и мотивационные призы!
-  </p>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Виртуальный Фитнес‑Тренер</title>
 
-  <div style="max-width:700px; margin:auto;">
-    <!-- ВСТАВЛЕННАЯ РАБОТАЮЩАЯ ФОРМА -->
-    <iframe 
-      data-tally-src="https://tally.so/embed/EkKD2o?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-      loading="lazy" 
-      width="100%" 
-      height="590" 
-      frameborder="0" 
-      marginheight="0" 
-      marginwidth="0" 
-      title="Челлендж: Fit за 30 дней с ИИ">
-    </iframe>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0D0D0F;
+      color: white;
+    }
+
+    header {
+      position: relative;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-image: url('kettlebell.webp');
+      display: flex;
+      align-items: center;
+    }
+
+    .overlay {
+      background: rgba(0,0,0,0.55);
+      padding: 40px;
+      max-width: 480px;
+      margin-left: 5vw;
+      border-radius: 12px;
+    }
+
+    h1 {
+      font-size: 36px;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #32E2C6;
+      color: #000;
+      padding: 14px 22px;
+      margin-top: 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .card img {
+      width: 160px;
+      border-radius: 12px;
+    }
+
+    .sub {
+      display: block;
+      font-size: 16px;
+      opacity: 0.8;
+      margin-top: 6px;
+    }
+
+    .highlight-goal {
+      color: #32E2C6;
+      font-weight: bold;
+    }
+
+    .plan-btn {
+      display: block;
+      margin: 20px 0;
+      text-align: left;
+      font-size: 20px;
+    }
+
+    html, body {max-width:100%; overflow-x:hidden;}
+    img {max-width:100%; height:auto;}
+
+    .hero-title,
+    .hero-sub {
+      transition: all .2s ease;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        height: auto;
+        min-height: 100vh;
+        display: block;
+        padding: 24px 16px 32px 16px;
+        background-position: center top;
+      }
+
+      .hero-title {
+        position: static !important;
+        font-size: 26px !important;
+        text-align: left;
+        margin: 0 0 12px 0;
+      }
+
+      .hero-sub {
+        position: static !important;
+        max-width: 100% !important;
+        text-align: left !important;
+        font-size: 16px !important;
+        margin: 0 0 20px 0;
+      }
+
+      .overlay {
+        margin: 0;
+        max-width: 100%;
+        padding: 18px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .card img {
+        width: 100%;
+        max-width: 260px;
+      }
+
+      .section {
+        padding: 40px 16px;
+      }
+
+      h2 {
+        font-size: 26px;
+      }
+
+      .reviews-grid {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .column {
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .plan-btn {
+        text-align: center;
+      }
+
+      .toggle-btn {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 20px 12px 28px 12px;
+      }
+
+      .overlay {
+        padding: 16px;
+      }
+
+      .hero-title {
+        font-size: 22px !important;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hero-title" style="position:absolute; top:30px; left:20px; font-size:42px; font-weight:bold; color:white; text-shadow: 2px 2px 6px rgba(0,0,0,0.6); z-index:10;">
+    ТВОЙ АИ-ФИТНЕС-ТРЕНЕР
+  </div>
+  <div class="hero-sub" style="position:absolute; top:30px; right:20px; max-width:320px; text-align:right; font-size:20px; line-height:1.5; font-weight:bold; color:white; text-shadow: 1px 1px 4px rgba(0,0,0,0.5);">
+    — Стань сильнее по‑своему.<br>
+    — Твое тело — твои правила тренировки.<br>
+    — Форма, которая подчиняется только тебе.
+  </div>
+  <div class="overlay">
+    <h1>Персональные тренировки и питание — под твой организм, цели и здоровье</h1>
+    <p>Тренируйся дома, в зале или на улице. Программа создаётся индивидуально — без универсальных схем.</p>
+    <a class="btn" href="#plans">Получить персональную программу</a>
+  </div>
+</header>
+
+<!-- ВСТАВЛЕННАЯ ФОРМА -->
+<section class="section">
+  <h2 style="text-align: center; color: #32E2C6;">Челлендж: Fit за 30 дней с ИИ</h2>
+  <p style="text-align:center; max-width:600px; margin:0 auto 40px; font-size:18px; opacity:0.9;">Прими вызов — получи бесплатную персональную программу от ИИ, тренируйся 30 дней и делись результатами. Лучшие участники получат продвинутые планы, консультации и мотивационные призы!</p>
+  <div style="max-width:700px;margin:auto;">
     <script async src="https://tally.so/widgets/embed.js"></script>
+    <iframe data-tally-src="https://tally.so/embed/EkKD2o?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="590" frameborder="0" marginheight="0" marginwidth="0" title="Fit за 30 дней с ИИ"></iframe>
   </div>
+</section>
 
-  <h3 style="margin-top:60px; text-align:center; color:#32E2C6; font-size:26px;">Истории участников</h3>
-  <div class="reviews-grid" style="display:flex; flex-wrap:wrap; gap:20px; margin-top:20px;">
-    <div class="review" style="flex:1; min-width:280px; background:#0d0d0f; padding:15px; border-radius:12px;">
-      <img src="review1.png" style="width:100%; border-radius:10px; margin-bottom:10px;">
-      <p class="name" style="font-weight:bold; color:#32E2C6;">Светлана</p>
-      <p class="text" style="opacity:0.85;">Минус 3.5 кг за месяц! Ела нормально, делала простые тренировки дома. Спасибо ИИ‑тренеру!</p>
-    </div>
-    <div class="review" style="flex:1; min-width:280px; background:#0d0d0f; padding:15px; border-radius:12px;">
-      <img src="review2.png" style="width:100%; border-radius:10px; margin-bottom:10px;">
-      <p class="name" style="font-weight:bold; color:#32E2C6;">Антон</p>
-      <p class="text" style="opacity:0.85;">Прокачался без спортзала — делал всё по плану от ИИ. Плюс 2.8 кг массы и отличная форма.</p>
-    </div>
-  </div>
-</div>
-<!-- КОНЕЦ БЛОКА -->
-
+<!-- ОСТАЛЬНОЕ СОДЕРЖИМОЕ САЙТА ОСТАЕТСЯ БЕЗ ИЗМЕНЕНИЙ -->
