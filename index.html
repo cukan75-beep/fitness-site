@@ -206,7 +206,32 @@
       h1 {
         font-size: 20px;
       }
-    }/* По умолчанию скрываем оба */
+    }/* По умолчанию скрываем оба */@media (max-width: 768px) {
+  .mobile-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 16px;
+    color: white;
+  }
+
+  .btn-mobile {
+    width: 90%;
+    padding: 14px 18px;
+    font-size: 16px;
+    text-align: center;
+    display: block;
+    background: #32E2C6;
+    color: black;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin: 20px auto 0 auto;
+  }
+}
+
 .hero-desktop, .hero-mobile {
   display: none;
 }
@@ -303,13 +328,16 @@
 </header>
 
 <!-- Мобильная версия -->
+<!-- Мобильная версия -->
 <header class="hero-mobile">
   <div class="mobile-overlay">
+    <h2 class="mobile-title">ТВОЙ АИ‑ФИТНЕС‑ТРЕНЕР</h2>
     <h1>Персональные тренировки и питание — под твой организм, цели и здоровье</h1>
     <p>Тренируйся дома, в зале или на улице. Программа создаётся индивидуально — без универсальных схем.</p>
     <a class="btn-mobile" href="https://t.me/Tsukan75" target="_blank">Получить персональную программу</a>
   </div>
 </header>
+
 
 
 <section style="padding:80px 20px; background:#0D0D0F; color:white; font-family:Arial, sans-serif;">
