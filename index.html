@@ -1,587 +1,817 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Виртуальный Фитнес‑Тренер</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Виртуальный Фитнес‑Тренер</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0D0D0F;
-      color: white;
-    }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0D0D0F;
+      color: white;
+    }
 
-    header {
-      position: relative;
-      height: 100vh;
-      background-size: cover;
-      background-position: center;
-      background-image: url('kettlebell.webp');
-      display: flex;
-      align-items: center;
-    }
+    header {
+      position: relative;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-image: url('kettlebell.webp');
+      display: flex;
+      align-items: center;
+    }
 
-    .overlay {
+    .overlay {
 }.example-video {
-  width: 100%;
-  max-width: 480px;
-  max-height: 90vh;
-  height: auto;
-  display: block;
-  margin: 20px auto;
-  border-radius: 12px;
-  object-fit: contain;
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 12px;
+  object-fit: contain;
 }
 
 
-      background: rgba(0,0,0,0.55);
-      padding: 40px;
-      max-width: 480px;
-      margin-left: 5vw;
-      border-radius: 12px;
-    }
+      background: rgba(0,0,0,0.55);
+      padding: 40px;
+      max-width: 480px;
+      margin-left: 5vw;
+      border-radius: 12px;
+    }
 
-    h1 {
-      font-size: 36px;
-      line-height: 1.3;
-      margin-bottom: 20px;
-    }
+    h1 {
+      font-size: 36px;
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
 
-    p {
-      font-size: 18px;
-      opacity: 0.9;
-    }
+    p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
 
-    .btn {
-      display: inline-block;
-      background: #32E2C6;
-      color: #000;
-      padding: 14px 22px;
-      margin-top: 20px;
-      border-radius: 10px;
-      font-weight: bold;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-    }
+    .btn {
+      display: inline-block;
+      background: #32E2C6;
+      color: #000;
+      padding: 14px 22px;
+      margin-top: 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
 
-    .section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+    .section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-    h2 {
-      font-size: 32px;
-      margin-bottom: 20px;
-    }
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
 
-    .card {
-      background: #111;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      line-height: 1.6;
-    }
+    .card {
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      line-height: 1.6;
+    }
 
-    .card img {
-      width: 160px;
-      border-radius: 12px;
-    }
+    .card img {
+      width: 160px;
+      border-radius: 12px;
+    }
 
-    .sub {
-      display: block;
-      font-size: 16px;
-      opacity: 0.8;
-      margin-top: 6px;
-    }
+    .sub {
+      display: block;
+      font-size: 16px;
+      opacity: 0.8;
+      margin-top: 6px;
+    }
 
-    .highlight-goal {
-      color: #32E2C6;
-      font-weight: bold;
-    }
+    .highlight-goal {
+      color: #32E2C6;
+      font-weight: bold;
+    }
 
-    .plan-btn {
-      display: block;
-      margin: 20px 0;
-      text-align: left;
-      font-size: 20px;
-    }
+    .plan-btn {
+      display: block;
+      margin: 20px 0;
+      text-align: left;
+      font-size: 20px;
+    }
 
-    /* Общие адаптивные вещи */
-    html, body {max-width:100%; overflow-x:hidden;}
-    img {max-width:100%; height:auto;}
+    /* Общие адаптивные вещи */
+    html, body {max-width:100%; overflow-x:hidden;}
+    img {max-width:100%; height:auto;}
 
-    .hero-title,
-    .hero-sub {
-      transition: all .2s ease;
-    }
+    .hero-title,
+    .hero-sub {
+      transition: all .2s ease;
+    }
 
-    /* ПЛАНШЕТ/ТЕЛЕФОН */
-    @media (max-width: 768px) {
-      header {
-        height: auto;
-        min-height: 100vh;
-        display: block;
-        padding: 24px 16px 32px 16px;
-        background-position: center top;
-      }
+    /* ПЛАНШЕТ/ТЕЛЕФОН */
+    @media (max-width: 768px) {
+      header {
+        height: auto;
+        min-height: 100vh;
+        display: block;
+        padding: 24px 16px 32px 16px;
+        background-position: center top;
+      }
 
-      .hero-title {
-        position: static !important;
-        font-size: 26px !important;
-        text-align: left;
-        margin: 0 0 12px 0;
-      }
+      .hero-title {
+        position: static !important;
+        font-size: 26px !important;
+        text-align: left;
+        margin: 0 0 12px 0;
+      }
 
-      .hero-sub {
-        position: static !important;
-        max-width: 100% !important;
-        text-align: left !important;
-        font-size: 16px !important;
-        margin: 0 0 20px 0;
-      }
+      .hero-sub {
+        position: static !important;
+        max-width: 100% !important;
+        text-align: left !important;
+        font-size: 16px !important;
+        margin: 0 0 20px 0;
+      }
 
-      .overlay {
-        margin: 0;
-        max-width: 100%;
-        padding: 18px;
-      }
+      .overlay {
+        margin: 0;
+        max-width: 100%;
+        padding: 18px;
+      }
 
-      h1 {
-        font-size: 22px;
-      }
+      h1 {
+        font-size: 22px;
+      }
 
-      p {
-        font-size: 16px;
-      }
+      p {
+        font-size: 16px;
+      }
 
-      .card {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      .card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-      .card img {
-        width: 100%;
-        max-width: 260px;
-      }
+      .card img {
+        width: 100%;
+        max-width: 260px;
+      }
 
-      .section {
-        padding: 40px 16px;
-      }
+      .section {
+        padding: 40px 16px;
+      }
 
-      h2 {
-        font-size: 26px;
-      }
+      h2 {
+        font-size: 26px;
+      }
 
-      .reviews-grid {
-        flex-direction: column;
-        gap: 20px;
-      }
+      .reviews-grid {
+        flex-direction: column;
+        gap: 20px;
+      }
 
-      .column {
-        width: 100%;
-      }
+      .column {
+        width: 100%;
+      }
 
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
 
-      .plan-btn {
-        text-align: center;
-      }
+      .plan-btn {
+        text-align: center;
+      }
 
-      .toggle-btn {
-        font-size: 16px;
-      }
-    }
+      .toggle-btn {
+        font-size: 16px;
+      }
+    }
 
-    /* МАЛЕНЬКИЕ ТЕЛЕФОНЫ */
-    @media (max-width: 480px) {
-      header {
-        padding: 20px 12px 28px 12px;
-      }
+    /* МАЛЕНЬКИЕ ТЕЛЕФОНЫ */
+    @media (max-width: 480px) {
+      header {
+        padding: 20px 12px 28px 12px;
+      }
 
-      .overlay {
-        padding: 16px;
-      }
+      .overlay {
+        padding: 16px;
+      }
 
-      .hero-title {
-        font-size: 22px !important;
-      }
+      .hero-title {
+        font-size: 22px !important;
+      }
 
-      h1 {
-        font-size: 20px;
-      }
-    }/* По умолчанию скрываем оба */@media (max-width: 768px) {
-  .mobile-title {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 16px;
-    color: white;
-  }
+      h1 {
+        font-size: 20px;
+      }
+    }/* По умолчанию скрываем оба */@media (max-width: 768px) {
+  .mobile-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 16px;
+    color: white;
+  }
 
-  .btn-mobile {
-    width: 90%;
-    padding: 14px 18px;
-    font-size: 16px;
-    text-align: center;
-    display: block;
-    background: #32E2C6;
-    color: black;
-    border-radius: 10px;
-    font-weight: bold;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    margin: 20px auto 0 auto;
-  }
+  .btn-mobile {
+    width: 90%;
+    padding: 14px 18px;
+    font-size: 16px;
+    text-align: center;
+    display: block;
+    background: #32E2C6;
+    color: black;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    margin: 20px auto 0 auto;
+  }
 }
 
 .hero-desktop, .hero-mobile {
-  display: none;
+  display: none;
 }
 
 /* ПК-версия отображается только на ширине больше 768px */
 @media (min-width: 769px) {
-  .hero-desktop {
-    display: flex;
-    position: relative;
-    height: 100vh;
-    background-image: url('kettlebell.webp');
-    background-size: cover;
-    background-position: center;
-    align-items: center;
-  }
+  .hero-desktop {
+    display: flex;
+    position: relative;
+    height: 100vh;
+    background-image: url('kettlebell.webp');
+    background-size: cover;
+    background-position: center;
+    align-items: center;
+  }
 
-  .hero-title {
-    position: absolute;
-    top: 30px;
-    left: 20px;
-    font-size: 42px;
-    font-weight: bold;
-    color: white;
-    text-shadow: 2px 2px 4px black;
-  }
+  .hero-title {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    font-size: 42px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+  }
 
-  .overlay {
-    background: rgba(0, 0, 0, 0.55);
-    padding: 40px;
-    max-width: 480px;
-    margin-left: 5vw;
-    border-radius: 12px;
-  }
+  .overlay {
+    background: rgba(0, 0, 0, 0.55);
+    padding: 40px;
+    max-width: 480px;
+    margin-left: 5vw;
+    border-radius: 12px;
+  }
 }
 
 /* Мобильная версия — только на ширине 768px и ниже */
 @media (max-width: 768px) {
-  .hero-mobile {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    min-height: 100vh;
-    padding: 24px 16px 32px 16px;
-    background-image: url('kettlebell.webp');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-  }
+  .hero-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 100vh;
+    padding: 24px 16px 32px 16px;
+    background-image: url('kettlebell.webp');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
 
-  .mobile-overlay {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 20px;
-    border-radius: 12px;
-  }
+  .mobile-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+  }
 
-  .mobile-overlay h1 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
+  .mobile-overlay h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
 
-  .mobile-overlay p {
-    font-size: 16px;
-    opacity: 0.9;
-  }
+  .mobile-overlay p {
+    font-size: 16px;
+    opacity: 0.9;
+  }
 
-  .btn-mobile {
-    display: block;
-    background: #32E2C6;
-    color: black;
-    padding: 14px 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-    width: 90%;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  .btn-mobile {
+    display: block;
+    background: #32E2C6;
+    color: black;
+    padding: 14px 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    width: 90%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
-  </style>
+/* Стили для Ассистента */
+#fitnessAssistant {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-family: Arial, sans-serif;
+}
+
+#assistantButton {
+    background-color: #3b82f6; /* Синий цвет для контраста с зелено-голубым */
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#assistantButton:hover {
+    background-color: #2563eb;
+}
+
+#chatWindow {
+    width: 300px;
+    height: 400px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    /* Убедитесь, что он виден на мобильных устройствах */
+    max-width: calc(100vw - 40px);
+}
+
+.hidden {
+    display: none !important;
+}
+
+#chatHeader {
+    background-color: #3b82f6;
+    color: white;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#chatBody {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #f7f7f7;
+}
+
+#chatInput {
+    padding: 10px;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+/* Стили для сообщений */
+.message {
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-radius: 15px;
+    max-width: 80%;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.message.assistant {
+    background-color: #e0f2fe; /* Светло-голубой */
+    color: #1e40af;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+.message.user {
+    background-color: #3b82f6;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+}
+
+.chat-option-btn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.chat-option-btn:hover {
+    background-color: #2563eb;
+}
+
+@media (max-width: 768px) {
+    #fitnessAssistant {
+        bottom: 10px;
+        right: 10px;
+    }
+    #chatWindow {
+        width: 100%; /* На мобильных устройствах делаем его шире */
+        height: 350px;
+        bottom: 70px; /* Поднимаем выше, чтобы не перекрывал кнопку */
+        right: 10px;
+        position: fixed;
+    }
+}
+  </style>
 </head>
 <body>
-<!-- ПК‑версия -->
 <header class="hero-desktop">
-  <div class="hero-title">ТВОЙ АИ-ФИТНЕС-ТРЕНЕР</div>
-  <div class="overlay">
-    <h1>Персональные тренировки и питание — под твой организм, цели и здоровье</h1>
-    <p>Тренируйся дома, в зале или на улице. Программа создаётся индивидуально — без универсальных схем.</p>
-    <a class="btn" href="https://t.me/Tsukan75" target="_blank">Получить персональную программу</a>
-  </div>
+  <div class="hero-title">ТВОЙ АИ-ФИТНЕС-ТРЕНЕР</div>
+  <div class="overlay">
+    <h1>Персональные тренировки и питание — под твой организм, цели и здоровье</h1>
+    <p>Тренируйся дома, в зале или на улице. Программа создаётся индивидуально — без универсальных схем.</p>
+    <a class="btn" href="https://t.me/Tsukan75" target="_blank">Получить персональную программу</a>
+  </div>
 </header>
 
-<!-- Мобильная версия -->
-<!-- Мобильная версия -->
 <header class="hero-mobile">
-  <div class="mobile-overlay">
-    <h2 class="mobile-title">ТВОЙ АИ‑ФИТНЕС‑ТРЕНЕР</h2>
-    <h1>Персональные тренировки и питание — под твой организм, цели и здоровье</h1>
-    <p>Тренируйся дома, в зале или на улице. Программа создаётся индивидуально — без универсальных схем.</p>
-    <a class="btn-mobile" href="https://t.me/Tsukan75" target="_blank">Получить персональную программу</a>
-  </div>
+  <div class="mobile-overlay">
+    <h2 class="mobile-title">ТВОЙ АИ‑ФИТНЕС‑ТРЕНЕР</h2>
+    <h1>Персональные тренировки и питание — под твой организм, цели и здоровье</h1>
+    <p>Тренируйся дома, в зале или на улице. Программа создаётся индивидуально — без универсальных схем.</p>
+    <a class="btn-mobile" href="https://t.me/Tsukan75" target="_blank">Получить персональную программу</a>
+  </div>
 </header>
 
 
 
 <section style="padding:80px 20px; background:#0D0D0F; color:white; font-family:Arial, sans-serif;">
-  <h2 style="font-size:34px; margin-bottom:25px; color:#32E2C6; text-align:center;">Почему АИ-тренер сильнее обычного</h2>
-  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; max-width:1100px; margin:auto;">
+  <h2 style="font-size:34px; margin-bottom:25px; color:#32E2C6; text-align:center;">Почему АИ-тренер сильнее обычного</h2>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:25px; max-width:1100px; margin:auto;">
 
-    <div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
-      <h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Работает 24/7</h3>
-      <p style="opacity:0.85;">Всегда на связи, без перерывов и усталости. Поддержка и корректировка программы в любое время.</p>
-    </div>
+    <div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
+      <h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Работает 24/7</h3>
+      <p style="opacity:0.85;">Всегда на связи, без перерывов и усталости. Поддержка и корректировка программы в любое время.</p>
+    </div>
 
-    <div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
-      <h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Точнее тренера</h3>
-      <p style="opacity:0.85;">Анализирует технику, прогресс и ошибки с точностью технологий — без человеческого фактора.</p>
-    </div>
+    <div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
+      <h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Точнее тренера</h3>
+      <p style="opacity:0.85;">Анализирует технику, прогресс и ошибки с точностью технологий — без человеческого фактора.</p>
+    </div>
 
-    <div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
-      <h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Личная адаптация</h3>
-      <p style="opacity:0.85;">Программы подстраиваются под сон, уровень стресса, шаги, нагрузку и здоровье каждый день.</p>
-    </div>
+    <div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
+      <h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Личная адаптация</h3>
+      <p style="opacity:0.85;">Программы подстраиваются под сон, уровень стресса, шаги, нагрузку и здоровье каждый день.</p>
+    </div>
 
-    <div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
-      <h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Выгоднее в 10 раз</h3>
-      <p style="opacity:0.85;">Полный функционал персонального тренера по цене чашки кофе в неделю.</p>
-    </div>
+    <div style="background:#111; padding:22px; border-radius:12px; border:1px solid #1c1c1c;">
+      <h3 style="color:#32E2C6; font-size:22px; margin-bottom:10px;">Выгоднее в 10 раз</h3>
+      <p style="opacity:0.85;">Полный функционал персонального тренера по цене чашки кофе в неделю.</p>
+    </div>
 
-  </div>
+  </div>
 
-  <div style="text-align:center; margin-top:35px;">
-   <a class="btn btn-mobile" href="https://t.me/Tsukan75">Хочешь персонального АИ фитнес‑тренера? Напиши мне.</a>
-  </div>
+  <div style="text-align:center; margin-top:35px;">
+   <a class="btn btn-mobile" href="https://t.me/Tsukan75">Хочешь персонального АИ фитнес‑тренера? Напиши мне.</a>
+  </div>
 </section>
 
 <div class="section">
-  <h2>Кому подходит</h2>
-  <div class="card"><img src="waistline.webp"><div><span class='highlight-goal'>Хочу похудеть без стресса и срывов</span><br>— Составлю план питания и тренировок, который подойдёт твоему образу жизни и не перегрузит нервную систему.<br>— Научишься худеть без жёстких ограничений, эмоциональных качелей и вечного желания сорваться.<br>— Будем снижать вес постепенно и комфортно: нормализуем питание, сон, ритм дня и нагрузку.</div></div>
-  <div class="card"><img src="dumbbell.webp"><div><span class='highlight-goal'>Хочу набрать мышечную массу</span><br>— Получишь программу с акцентом на силу, правильную технику и прогрессию, чтобы расти стабильно и без травм.<br>— Подберу питание и режим восстановления под твой метаболизм, чтобы набор массы был «чистым».<br>— Научишься тренироваться осознанно: от контроля техники до правильного распределения объёма нагрузки.</div></div>
-  <div class="card"><img src="home_workout.webp"><div><span class='highlight-goal'>Хочу тренироваться дома</span><br>— Составлю эффективные тренировки без инвентаря, которые легко вписать в твой график.<br>— Ты сможешь держать форму, улучшать гибкость, силу и выносливость, не выходя из дома.<br>— Индивидуальная программа под твоё пространство, уровень подготовки и цели.</div></div>
+  <h2>Кому подходит</h2>
+  <div class="card"><img src="waistline.webp"><div><span class='highlight-goal'>Хочу похудеть без стресса и срывов</span><br>— Составлю план питания и тренировок, который подойдёт твоему образу жизни и не перегрузит нервную систему.<br>— Научишься худеть без жёстких ограничений, эмоциональных качелей и вечного желания сорваться.<br>— Будем снижать вес постепенно и комфортно: нормализуем питание, сон, ритм дня и нагрузку.</div></div>
+  <div class="card"><img src="dumbbell.webp"><div><span class='highlight-goal'>Хочу набрать мышечную массу</span><br>— Получишь программу с акцентом на силу, правильную технику и прогрессию, чтобы расти стабильно и без травм.<br>— Подберу питание и режим восстановления под твой метаболизм, чтобы набор массы был «чистым».<br>— Научишься тренироваться осознанно: от контроля техники до правильного распределения объёма нагрузки.</div></div>
+  <div class="card"><img src="home_workout.webp"><div><span class='highlight-goal'>Хочу тренироваться дома</span><br>— Составлю эффективные тренировки без инвентаря, которые легко вписать в твой график.<br>— Ты сможешь держать форму, улучшать гибкость, силу и выносливость, не выходя из дома.<br>— Индивидуальная программа под твоё пространство, уровень подготовки и цели.</div></div>
 </div>
 
 <div class="section">
-  <h2>Как это работает</h2>
-  <div class="card"><img src="questionnaire.webp"><div><span class='highlight-goal'>1. Заполняете мини-анкету</span><br><span class='sub'>Чтобы я понял твой опыт, цели и ограничения — и собрал программу без ошибок.</span></div></div>
-  <div class="card"><img src="analysis.webp"><div><span class='highlight-goal'>2. Анализ данных и подбор нагрузки</span><br><span class='sub'>Подбираю нагрузку так, чтобы прогресс шёл без перегруза и стресса.</span></div></div>
-  <div class="card"><img src="program.webp"><div><span class='highlight-goal'>3. Получаете персональный план</span><br><span class='sub'>Структурированная программа с рекомендациями на каждый день.</span></div></div>
+  <h2>Как это работает</h2>
+  <div class="card"><img src="questionnaire.webp"><div><span class='highlight-goal'>1. Заполняете мини-анкету</span><br><span class='sub'>Чтобы я понял твой опыт, цели и ограничения — и собрал программу без ошибок.</span></div></div>
+  <div class="card"><img src="analysis.webp"><div><span class='highlight-goal'>2. Анализ данных и подбор нагрузки</span><br><span class='sub'>Подбираю нагрузку так, чтобы прогресс шёл без перегруза и стресса.</span></div></div>
+  <div class="card"><img src="program.webp"><div><span class='highlight-goal'>3. Получаете персональный план</span><br><span class='sub'>Структурированная программа с рекомендациями на каждый день.</span></div></div>
 </div>
-<!-- Кнопка для запуска видео -->
 <div style="text-align:center; margin-top: 20px;">
-  <button onclick="document.getElementById('exampleVideo').style.display='block'" class="btn">ВИДЕО ПРИМЕР</button>
+  <button onclick="document.getElementById('exampleVideo').style.display='block'" class="btn">ВИДЕО ПРИМЕР</button>
 </div>
 
-<!-- Скрытый по умолчанию видео-плеер -->
 <div style="display:none; text-align:center; margin-top: 20px;" id="exampleVideo">
-  <video controls class="example-video" id="exampleVideo">
+  <video controls class="example-video" id="exampleVideo">
 
-  <source src="example_video.mp4" type="video/mp4">
-    Ваш браузер не поддерживает видео.
-  </video>
+  <source src="example_video.mp4" type="video/mp4">
+    Ваш браузер не поддерживает видео.
+  </video>
 </div>
 
 <div class="section">
 
-  <div class="section" id="reviews">
-    <h2>Отзывы наших клиентов</h2>
+  <div class="section" id="reviews">
+    <h2>Отзывы наших клиентов</h2>
 
 <div class="reviews-grid">
 
-  <div class="column">
-    <div class="review">
-      <img src="logo_review.webp" style="width: 50px; height: auto;">
+  <div class="column">
+    <div class="review">
+      <img src="logo_review.webp" style="width: 50px; height: auto;">
 
-      <p class="name">Алина</p>
-      <p class="text">Во дворе есть площадка с тренажёрами. Описав своими словами, что там имеется, я получила детальный план тренировок на месяц. Экономия налицо — не надо платить за фитнес-зал и персонального тренера. Я очень рада!</p>
-    </div>
+      <p class="name">Алина</p>
+      <p class="text">Во дворе есть площадка с тренажёрами. Описав своими словами, что там имеется, я получила детальный план тренировок на месяц. Экономия налицо — не надо платить за фитнес-зал и персонального тренера. Я очень рада!</p>
+    </div>
 
-    <div class="review">
-      <img src="logo_review.webp" style="width: 50px; height: auto;">
+    <div class="review">
+      <img src="logo_review.webp" style="width: 50px; height: auto;">
 
-      <p class="name">Кристина</p>
-      <p class="text">Теперь в зал я хожу с уверенностью, что всё делаю правильно, потому что у меня есть готовый план тренировок и питания!</p>
-    </div>
+      <p class="name">Кристина</p>
+      <p class="text">Теперь в зал я хожу с уверенностью, что всё делаю правильно, потому что у меня есть готовый план тренировок и питания!</p>
+    </div>
 
-    <div class="review">
-      <img src="logo_review.webp" style="width: 50px; height: auto;">
+    <div class="review">
+      <img src="logo_review.webp" style="width: 50px; height: auto;">
 
-      <p class="name">Мария</p>
-      <p class="text">Я тренируюсь дома — удивительно, что даже без тренажёров можно держать форму. Ассистент подстроился под мои запросы и выдал готовый план.</p>
-    </div>
-  </div>
+      <p class="name">Мария</p>
+      <p class="text">Я тренируюсь дома — удивительно, что даже без тренажёров можно держать форму. Ассистент подстроился под мои запросы и выдал готовый план.</p>
+    </div>
+  </div>
 
-  <div class="column">
-    <div class="review">
-      <img src="logo_review.webp" style="width: 50px; height: auto;">
+  <div class="column">
+    <div class="review">
+      <img src="logo_review.webp" style="width: 50px; height: auto;">
 
-      <p class="name">Денис</p>
-      <p class="text">Уличный спорткомплекс ничем не уступает фитнес-залу, если у тебя есть подробный план от ИИ-ассистента. Решил сбросить вес — ассистент сразу составил диету на месяц. Это очень круто!</p>
-    </div>
+      <p class="name">Денис</p>
+      <p class="text">Уличный спорткомплекс ничем не уступает фитнес-залу, если у тебя есть подробный план от ИИ-ассистента. Решил сбросить вес — ассистент сразу составил диету на месяц. Это очень круто!</p>
+    </div>
 
-    <div class="review">
-      <img src="logo_review.webp" style="width: 50px; height: auto;">
+    <div class="review">
+      <img src="logo_review.webp" style="width: 50px; height: auto;">
 
-      <p class="name">Александр</p>
-      <p class="text">Хожу в зал с персональным планом тренировок, подобранным ИИ-ассистентом по моим параметрам. Теперь смело отказываюсь от индивидуального тренера за отдельную плату.</p>
-    </div>
+      <p class="name">Александр</p>
+      <p class="text">Хожу в зал с персональным планом тренировок, подобранным ИИ-ассистентом по моим параметрам. Теперь смело отказываюсь от индивидуального тренера за отдельную плату.</p>
+    </div>
 
-    <div class="review">
-      <img src="logo_review.webp" style="width: 50px; height: auto;">
+    <div class="review">
+      <img src="logo_review.webp" style="width: 50px; height: auto;">
 
-      <p class="name">Никита</p>
-      <p class="text">Занимаюсь дома — упражнения подобраны идеально, без перегрузок. Результатом доволен! Через месяц куплю новый план уже для уличной тренажёрки.</p>
-    </div>
-  </div>
+      <p class="name">Никита</p>
+      <p class="text">Занимаюсь дома — упражнения подобраны идеально, без перегрузок. Результатом доволен! Через месяц куплю новый план уже для уличной тренажёрки.</p>
+    </div>
+  </div>
 
 </div>
 
-  <style>
-    .reviews-grid{display:flex;gap:40px;margin-top:20px;}
-    .column{flex:1;display:flex;flex-direction:column;gap:20px;}
-    .review{background:#111;padding:15px;border-radius:12px;}
-    .review img{width:100%;border-radius:10px;margin-bottom:8px;}
-    .name{font-weight:bold;color:#32E2C6;margin-bottom:4px;}
-    .text{opacity:0.9;line-height:1.4;}
+  <style>
+    .reviews-grid{display:flex;gap:40px;margin-top:20px;}
+    .column{flex:1;display:flex;flex-direction:column;gap:20px;}
+    .review{background:#111;padding:15px;border-radius:12px;}
+    .review img{width:100%;border-radius:10px;margin-bottom:8px;}
+    .name{font-weight:bold;color:#32E2C6;margin-bottom:4px;}
+    .text{opacity:0.9;line-height:1.4;}
 
-    .plan-btn{display:block;margin:20px 0;text-align:left;font-size:20px;}
-  </style>
+    .plan-btn{display:block;margin:20px 0;text-align:left;font-size:20px;}
+  </style>
 
-  <h2 id="plans">ЗАБРАТЬ ПЛАН ТРЕНИРОВОК</h2>
-  <a class="btn plan-btn btn-mobile" href="https://t.me/Tsukan75">Связь со мной.</a>
-  <p style="margin-top:10px;font-size:14px;opacity:0.8;"></p>
+  <h2 id="plans">ЗАБРАТЬ ПЛАН ТРЕНИРОВОК</h2>
+  <a class="btn plan-btn btn-mobile" href="https://t.me/Tsukan75">Связь со мной.</a>
+  <p style="margin-top:10px;font-size:14px;opacity:0.8;"></p>
 </div>
 
-<!-- Форма Tally: Челлендж Fit за 30 дней с ИИ -->
 <div class="section" style="background:#0D0D0F; padding:60px 20px;">
-  <h2 style="text-align:center; color:#32E2C6; font-size:32px; margin-bottom:30px;">
-    Челлендж: Fit за 30 дней с ИИ
-  </h2>
-  <p style="text-align:center; max-width:600px; margin:0 auto 40px auto; font-size:18px;">
-    Прими вызов — получи бесплатную персональную программу от ИИ, тренируйся 30 дней и делись результатами.
-    Лучшие участники получат продвинутые планы, консультации и мотивационные призы!
-  </p>
-  
-  <div style="max-width:700px; margin:0 auto;">
-    <iframe data-tally-src="https://tally.so/embed/EkKD2o?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="530" frameborder="0" marginheight="0" marginwidth="0" title="Fit за 30 дней с ИИ"></iframe>
-    <script>var d=document,w="https://tally.so/widgets/embed.js";if(!d.querySelector(`script[src="${w}"]`)){var s=d.createElement("script");s.src=w;s.async=1;d.body.appendChild(s);}</script>
-  </div>
+  <h2 style="text-align:center; color:#32E2C6; font-size:32px; margin-bottom:30px;">
+    Челлендж: Fit за 30 дней с ИИ
+  </h2>
+  <p style="text-align:center; max-width:600px; margin:0 auto 40px auto; font-size:18px;">
+    Прими вызов — получи бесплатную персональную программу от ИИ, тренируйся 30 дней и делись результатами.
+    Лучшие участники получат продвинутые планы, консультации и мотивационные призы!
+  </p>
+  
+  <div style="max-width:700px; margin:0 auto;">
+    <iframe data-tally-src="https://tally.so/embed/EkKD2o?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="530" frameborder="0" marginheight="0" marginwidth="0" title="Fit за 30 дней с ИИ"></iframe>
+    <script>var d=document,w="https://tally.so/widgets/embed.js";if(!d.querySelector(`script[src="${w}"]`)){var s=d.createElement("script");s.src=w;s.async=1;d.body.appendChild(s);}</script>
+  </div>
 </div>
 <div class="info-section">
-  <button class="toggle-btn">Политика конфиденциальности</button>
-  <div class="content hidden">
+  <button class="toggle-btn">Политика конфиденциальности</button>
+  <div class="content hidden">
 
-    <h2>Политика конфиденциальности</h2>
-    <p>Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных, предоставляемых пользователями сайта «Виртуальный Фитнес‑Тренер».</p>
-    <ul>
-      <li>Оператор: ИП с ОГРНИП 305025834000022, ИНН 025802324932, Email: cukanchik@rambler.ru, Тел.: +7 929 755-13-95.</li>
-      <li>Собираемые данные: имя, email, телефон, цели тренировок и питания.</li>
-      <li>Цели обработки: предоставление консультаций, индивидуальных программ, связь с пользователями.</li>
-      <li>Хранение данных: в течение 3 лет с момента последнего взаимодействия.</li>
-      <li>Передача третьим лицам: не осуществляется, за исключением случаев, предусмотренных законодательством РФ.</li>
-    </ul>
-    <p>Пользователь, отправляя данные через формы сайта, подтверждает согласие с данной политикой.</p>
+    <h2>Политика конфиденциальности</h2>
+    <p>Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных, предоставляемых пользователями сайта «Виртуальный Фитнес‑Тренер».</p>
+    <ul>
+      <li>Оператор: ИП с ОГРНИП 305025834000022, ИНН 025802324932, Email: cukanchik@rambler.ru, Тел.: +7 929 755-13-95.</li>
+      <li>Собираемые данные: имя, email, телефон, цели тренировок и питания.</li>
+      <li>Цели обработки: предоставление консультаций, индивидуальных программ, связь с пользователями.</li>
+      <li>Хранение данных: в течение 3 лет с момента последнего взаимодействия.</li>
+      <li>Передача третьим лицам: не осуществляется, за исключением случаев, предусмотренных законодательством РФ.</li>
+    </ul>
+    <p>Пользователь, отправляя данные через формы сайта, подтверждает согласие с данной политикой.</p>
 
-  </div>
+  </div>
 </div>
 
 <div class="info-section">
-  <button class="toggle-btn">Пользовательское соглашение</button>
-  <div class="content hidden">
+  <button class="toggle-btn">Пользовательское соглашение</button>
+  <div class="content hidden">
 
-    <h2>Пользовательское соглашение</h2>
-    <p>Используя сайт «Виртуальный Фитнес‑Тренер», вы соглашаетесь с условиями настоящего соглашения:</p>
-    <ul>
-      <li>Услуги предоставляются ИП ОГРНИП 305025834000022, ИНН 025802324932.</li>
-      <li>Информация носит рекомендательный характер и не заменяет медицинскую консультацию.</li>
-      <li>Ответственность за следование программам несет пользователь.</li>
-      <li>Запрещено копирование и распространение материалов сайта без разрешения.</li>
-      <li>Оператор вправе изменять условия в любое время без предварительного уведомления.</li>
-    </ul>
+    <h2>Пользовательское соглашение</h2>
+    <p>Используя сайт «Виртуальный Фитнес‑Тренер», вы соглашаетесь с условиями настоящего соглашения:</p>
+    <ul>
+      <li>Услуги предоставляются ИП ОГРНИП 305025834000022, ИНН 025802324932.</li>
+      <li>Информация носит рекомендательный характер и не заменяет медицинскую консультацию.</li>
+      <li>Ответственность за следование программам несет пользователь.</li>
+      <li>Запрещено копирование и распространение материалов сайта без разрешения.</li>
+      <li>Оператор вправе изменять условия в любое время без предварительного уведомления.</li>
+    </ul>
 
-  </div>
+  </div>
 </div>
 
 <footer class="section contact-footer">
-  <h2>Контакты</h2>
-  <p>Email: <a href="mailto:cukanchik@rambler.ru">cukanchik@rambler.ru</a></p>
-  <p>Telegram: <a href="https://t.me/Tsukan75" target="_blank">@Tsukan75</a></p>
-  <p>Телефон: <a href="tel:+79297551395">+7 929 755-13-95</a></p>
+  <h2>Контакты</h2>
+  <p>Email: <a href="mailto:cukanchik@rambler.ru">cukanchik@rambler.ru</a></p>
+  <p>Telegram: <a href="https://t.me/Tsukan75" target="_blank">@Tsukan75</a></p>
+  <p>Телефон: <a href="tel:+79297551395">+7 929 755-13-95</a></p>
 </footer>
 
 <style>
-  .info-section { margin:20px 0;}
-  .toggle-btn {width:100%;padding:15px;font-size:18px;background:#222;color:#fff;border:none;cursor:pointer;text-align:left;border-radius:6px;transition:background .2s;}
-  .toggle-btn:hover {background:#333;}
-  .content {background:#111;padding:15px;margin-top:10px;border-radius:6px;line-height:1.6;}
-  .hidden {display:none;}
+  .info-section { margin:20px 0;}
+  .toggle-btn {width:100%;padding:15px;font-size:18px;background:#222;color:#fff;border:none;cursor:pointer;text-align:left;border-radius:6px;transition:background .2s;}
+  .toggle-btn:hover {background:#333;}
+  .content {background:#111;padding:15px;margin-top:10px;border-radius:6px;line-height:1.6;}
+  .hidden {display:none;}
 .contact-footer {
-  background: #111;
-  padding: 40px 20px;
-  border-top: 1px solid #333;
-  text-align: center;
-  color: #fff;
+  background: #111;
+  padding: 40px 20px;
+  border-top: 1px solid #333;
+  text-align: center;
+  color: #fff;
 }
 
 .contact-footer h2 {
-  font-size: 26px;
-  color: #32E2C6;
-  margin-bottom: 20px;
+  font-size: 26px;
+  color: #32E2C6;
+  margin-bottom: 20px;
 }
 
 .contact-footer a {
-  color: #32E2C6;
-  text-decoration: none;
+  color: #32E2C6;
+  text-decoration: none;
 }
 
 .contact-footer a:hover {
-  text-decoration: underline;
+  text-decoration: underline;
 }
 </style>
 
 <script>
-  document.querySelectorAll(".toggle-btn").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-      const c=btn.nextElementSibling;
-      c.classList.toggle("hidden");
-    });
-  });
+  document.querySelectorAll(".toggle-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const c=btn.nextElementSibling;
+      c.classList.toggle("hidden");
+    });
+  });
 </script>
 <script>
-  const video = document.getElementById('exampleVideo');
-  if (video) {
-    video.playbackRate = 1.5;
-  }
+  const video = document.getElementById('exampleVideo');
+  if (video) {
+    video.playbackRate = 1.5;
+  }
+</script>
+
+<div id="fitnessAssistant">
+    <button id="assistantButton" onclick="toggleChat()">
+        🤖 Ассистент
+    </button>
+    <div id="chatWindow" class="hidden">
+        <div id="chatHeader">
+            Персональный Фитнес-Коуч
+        </div>
+        <div id="chatBody">
+            <div class="message assistant">
+                Привет! Я ИИ-ассистент. Чтобы создать ваш план, мне нужно 10 секунд ваших данных. Начнем?
+            </div>
+        </div>
+        <div id="chatInput">
+            <button class="chat-option-btn" onclick="nextStep(1, 'Начать')">
+                Да, начать!
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+const TELEGRAM_LINK = 'https://t.me/Tsukan75'; 
+
+const chatWindow = document.getElementById('chatWindow');
+const chatBody = document.getElementById('chatBody');
+const chatInput = document.getElementById('chatInput');
+let currentStep = 0;
+
+// Функция для открытия/закрытия окна чата
+function toggleChat() {
+    chatWindow.classList.toggle('hidden');
+    // Если окно открыто, и это первый раз, начинаем диалог
+    if (!chatWindow.classList.contains('hidden') && currentStep === 0) {
+        // Убираем стартовую кнопку, чтобы избежать дублирования
+        chatInput.innerHTML = ''; 
+        // Запускаем первый шаг диалога
+        setTimeout(() => nextStep(1, 'Да, начать!'), 500); 
+    }
+}
+
+// Функция для добавления сообщения в чат
+function appendMessage(sender, text) {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `message ${sender}`;
+    msgDiv.textContent = text;
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight; // Прокрутка вниз
+}
+
+// Функция для отображения кнопок-опций
+function displayOptions(options) {
+    chatInput.innerHTML = '';
+    options.forEach((option) => {
+        const btn = document.createElement('button');
+        btn.className = 'chat-option-btn';
+        btn.textContent = option.text;
+        btn.onclick = () => nextStep(option.nextStep, option.text);
+        chatInput.appendChild(btn);
+    });
+}
+
+// Основная функция для управления логикой диалога
+function nextStep(step, userResponse) {
+    // 1. Отобразить ответ пользователя, если он не нажал кнопку "Начать"
+    if (step > currentStep) {
+        appendMessage('user', userResponse);
+    }
+    
+    currentStep = step;
+    chatInput.innerHTML = ''; // Очищаем старые кнопки
+    
+    // Задержка для имитации "думающего" бота
+    setTimeout(() => {
+        switch (currentStep) {
+            case 1:
+                // Вопрос 1: Цель
+                appendMessage('assistant', 'Отлично! С чего начнем? Какова ваша основная фитнес-цель?');
+                displayOptions([
+                    { text: 'Похудение', nextStep: 2 },
+                    { text: 'Набор Мышц', nextStep: 2 },
+                    { text: 'Улучшение Выносливости', nextStep: 2 }
+                ]);
+                break;
+            case 2:
+                // Вопрос 2: Частота
+                appendMessage('assistant', 'Спасибо! И сколько дней в неделю вы готовы уделять тренировкам?');
+                displayOptions([
+                    { text: '2-3 дня', nextStep: 3 },
+                    { text: '4-5 дней', nextStep: 3 },
+                    { text: '6+ дней', nextStep: 3 }
+                ]);
+                break;
+            case 3:
+                // Финальный переход (Пик интереса)
+                appendMessage('assistant', 'Понял! План готов на 85%. Для финализации и учета всех нюансов (травмы, предпочтения) мне нужно связать вас с моим Персональным Коучем.');
+                
+                setTimeout(() => {
+                     appendMessage('assistant', 'Нажмите ниже, чтобы мгновенно получить доступ к Коучу в Telegram и запустить генерацию плана!');
+                     // Создаем финальную кнопку перехода
+                     const finalBtn = document.createElement('button');
+                     finalBtn.className = 'chat-option-btn';
+                     finalBtn.textContent = 'Перейти в Telegram и получить план!';
+                     // Открываем вашу ссылку в новом окне
+                     finalBtn.onclick = () => window.open(TELEGRAM_LINK, '_blank'); 
+                     chatInput.appendChild(finalBtn);
+                }, 1000);
+                
+                break;
+            default:
+                break;
+        }
+    }, 500); 
+}
 </script>
 
 </body>
