@@ -24,6 +24,18 @@
     }
 
     .overlay {
+}.example-video {
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+
       background: rgba(0,0,0,0.55);
       padding: 40px;
       max-width: 480px;
@@ -391,7 +403,8 @@
 
 <!-- Скрытый по умолчанию видео-плеер -->
 <div style="display:none; text-align:center; margin-top: 20px;" id="exampleVideo">
-  <video controls style="max-width: 100%; height: auto;" id="exampleVideo">
+  <video controls class="example-video" id="exampleVideo">
+
   <source src="example_video.mp4" type="video/mp4">
     Ваш браузер не поддерживает видео.
   </video>
